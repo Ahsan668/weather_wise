@@ -27,6 +27,7 @@ class WeatherProvider with ChangeNotifier {
 
   String get measurementUnit => isCelsius ? '°C' : '°F';
 
+  //location request 
   Future<Position?> requestLocation(BuildContext context) async {
     isLocationserviceEnabled = await Geolocator.isLocationServiceEnabled();
     notifyListeners();
@@ -37,6 +38,7 @@ class WeatherProvider with ChangeNotifier {
       return Future.error('Location services are disabled.');
     }
 
+    //location permission check
     locationPermission = await Geolocator.checkPermission();
     if (locationPermission == LocationPermission.denied) {
       isLoading = false;
@@ -50,6 +52,7 @@ class WeatherProvider with ChangeNotifier {
       }
     }
 
+    //permission denied
     if (locationPermission == LocationPermission.deniedForever) {
       isLoading = false;
       notifyListeners();
@@ -60,7 +63,8 @@ class WeatherProvider with ChangeNotifier {
       ));
       return Future.error('Location permissions are permanently denied');
     }
-
+    
+    //get current positiom
     return await Geolocator.getCurrentPosition();
   }
 
@@ -95,6 +99,7 @@ class WeatherProvider with ChangeNotifier {
     }
   }
 
+  
   Future<void> getCurrentWeather(LatLng location) async {
     Uri url = Uri.parse(
       'https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=$apiKey',
