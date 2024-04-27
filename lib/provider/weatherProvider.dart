@@ -99,7 +99,7 @@ class WeatherProvider with ChangeNotifier {
     }
   }
 
-  
+  //current weather
   Future<void> getCurrentWeather(LatLng location) async {
     Uri url = Uri.parse(
       'https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=$apiKey',
@@ -118,6 +118,7 @@ class WeatherProvider with ChangeNotifier {
     }
   }
 
+  //daily weather
   Future<void> getDailyWeather(LatLng location) async {
     isLoading = true;
     notifyListeners();
@@ -147,6 +148,7 @@ class WeatherProvider with ChangeNotifier {
     }
   }
 
+  //convert location to latitude_longitude
   Future<GeocodeData?> locationToLatLng(String location) async {
     try {
       Uri url = Uri.parse(
@@ -163,6 +165,7 @@ class WeatherProvider with ChangeNotifier {
     }
   }
 
+  //weather search method
   Future<void> searchWeather(String location) async {
     isLoading = true;
     notifyListeners();
