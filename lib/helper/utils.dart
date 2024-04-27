@@ -1,3 +1,4 @@
+//weather value to string
 String uviValueToString(double uvi) {
   if (uvi <= 2) {
     return 'Low';
@@ -13,6 +14,7 @@ String uviValueToString(double uvi) {
   return 'Unknown';
 }
 
+//image acc to weather
 String getWeatherImage(String input) {
   String weather = input.toLowerCase();
   String assetPath = 'assets/images/';
