@@ -10,12 +10,6 @@ Weather Wise is a mobile application built with Flutter that provides real-time 
 - **User-friendly Interface**: Easy to navigate and visually appealing design.
 - **Search Functionality**: Find weather information for any city worldwide.
 
-## Screenshots
-
-![Home Screen](screenshots/home_screen.png)
-![Forecast Screen](screenshots/forecast_screen.png)
-![Search Screen](screenshots/search_screen.png)
-
 ## Installation
 
 1. **Clone the repository:**
